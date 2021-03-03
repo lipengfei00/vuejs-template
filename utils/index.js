@@ -21,6 +21,7 @@ exports.sortDependencies = function sortDependencies(data) {
 }
 
 /**
+ * 自动执行npm install
  * Runs `npm install` in the project directory
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
@@ -30,7 +31,8 @@ exports.installDependencies = function installDependencies(
   executable = 'npm',
   color
 ) {
-  console.log(`\n\n# ${color('Installing project dependencies ...')}`)
+  // console.log(`\n\n# ${color('Installing project dependencies ...')}`)
+  console.log(`\n\n# ${color('安装依赖中 ...')}`)
   console.log('# ========================\n')
   return runCommand(executable, ['install'], {
     cwd,

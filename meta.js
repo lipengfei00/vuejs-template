@@ -81,31 +81,17 @@ module.exports = {
   complete: function(data, { chalk }) {
     console.log('----------------------------------data')
     console.log(data)
-    console.log('----------------------------------chalk')
-    console.log(chalk)
-    console.log('----------------------------------process')
-    console.log(process)
-
+    
     const green = chalk.green
 
     sortDependencies(data, green)
 
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
-    console.log('----------------------------------cwd')
-    console.log(cwd)
-    if (data.autoInstall) {
-      installDependencies(cwd, data.autoInstall, green)
-        .then(() => {
-          return runLintFix(cwd, data, green)
-        })
-        .then(() => {
-          printMessage(data, green)
-        })
-        .catch(e => {
-          console.log(chalk.red('Error:'), e)
-        })
-    } else {
+
+    installDependencies(cwd, 'npm', green).then(() => {
       printMessage(data, chalk)
-    }
+    }).catch(e => {
+      console.log(chalk.red('Error:'), e);
+    })
   },
 }
