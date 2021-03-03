@@ -21,6 +21,14 @@ exports.sortDependencies = function sortDependencies(data) {
 }
 
 /**
+ * 
+ */
+exports.startProject = function startProject(cwd, executable = 'npm', color) {
+  console.log(`\n\n# ${color('项目启动中 ... ')}`)
+  return runCommand(executable, ['run serve'], { cwd, })
+}
+
+/**
  * 自动执行npm install
  * Runs `npm install` in the project directory
  * @param {string} cwd Path of the created project directory

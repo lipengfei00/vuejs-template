@@ -4,8 +4,8 @@ const fs = require('fs')
 const {
   sortDependencies,
   installDependencies,
-  runLintFix,
   printMessage,
+  startProject,
 } = require('./utils')
 const pkg = require('./package.json')
 
@@ -61,6 +61,11 @@ module.exports = {
       type: 'confirm',
       message: 'Install vuex?',
     },
+    autoStartProject: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Auto project after install?'
+    }
 
   },
   filters: {
@@ -90,6 +95,7 @@ module.exports = {
 
     installDependencies(cwd, 'npm', green).then(() => {
       printMessage(data, chalk)
+      data.autoStartProject && startProject(cwd, 'npm', green)
     }).catch(e => {
       console.log(chalk.red('Error:'), e);
     })
