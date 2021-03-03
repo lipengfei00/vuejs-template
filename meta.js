@@ -84,7 +84,7 @@ module.exports = {
     'src/store/**/*': 'vuex',
   },
   complete: function(data, { chalk }) {
-    console.log('----------------------------------data')
+    console.log('================= prompts data ====================')
     console.log(data)
     
     const green = chalk.green
@@ -100,4 +100,5 @@ module.exports = {
       console.log(chalk.red('Error:'), e);
     })
   },
+  completeMessage: '渲染完成'
 }
