@@ -79,15 +79,20 @@ module.exports = {
     'src/store/**/*': 'vuex',
   },
   complete: function(data, { chalk }) {
+    console.log('----------------------------------data')
     console.log(data)
-    console.log('----------------------------------')
+    console.log('----------------------------------chalk')
     console.log(chalk)
+    console.log('----------------------------------process')
+    console.log(process)
+
     const green = chalk.green
 
     sortDependencies(data, green)
 
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
-
+    console.log('----------------------------------cwd')
+    console.log(cwd)
     if (data.autoInstall) {
       installDependencies(cwd, data.autoInstall, green)
         .then(() => {

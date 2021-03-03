@@ -63,6 +63,7 @@ exports.runLintFix = function runLintFix(cwd, data, color) {
 
 /**
  * Prints the final message with instructions of necessary next steps.
+ * 项目模板创建结束时的提示信息
  * @param {Object} data Data from questionnaire.
  */
 exports.printMessage = function printMessage(data, { green, yellow }) {
@@ -75,7 +76,7 @@ To get started:
   ${yellow(
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
       data
-    )}${lintMsg(data)}npm run dev`
+    )}${lintMsg(data)}npm run serve`
   )}
   
 Documentation can be found at https://vuejs-templates.github.io/webpack
