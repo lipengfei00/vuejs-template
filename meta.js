@@ -60,7 +60,8 @@ module.exports = {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install vuex?',
-    }
+    },
+
   },
   filters: {
     '.eslintrc.js': 'lint',
@@ -78,6 +79,9 @@ module.exports = {
     'src/store/**/*': 'vuex',
   },
   complete: function(data, { chalk }) {
+    console.log(data)
+    console.log('----------------------------------')
+    console.log(chalk)
     const green = chalk.green
 
     sortDependencies(data, green)
