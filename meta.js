@@ -57,19 +57,24 @@ module.exports = {
       message: 'Which CSS preprocessor to choose?',
       choices: [
         {
-          name: 'Sass',
-          value: 'Sass',
-          short: 'Sass',
+          name: 'sass',
+          value: 'sass',
+          short: 'sass',
         },
         {
-          name: 'Less',
-          value: 'Less',
-          short: 'Less',
+          name: 'less',
+          value: 'less',
+          short: 'less',
         },
         {
-          name: 'Stylus',
-          value: 'Stylus',
-          short: 'Stylus',
+          name: 'stylus',
+          value: 'stylus',
+          short: 'stylus',
+        },
+        {
+          name: 'Do not use',
+          value: 'Do not use',
+          short: 'Do not use'
         }
       ]
     },
@@ -86,7 +91,7 @@ module.exports = {
     autoStartProject: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Auto project after install?'
+      message: 'Auto start project after install?'
     }
   },
   filters: {
@@ -115,8 +120,8 @@ module.exports = {
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
 
     installDependencies(cwd, 'npm', green).then(() => {
-      printMessage(data, chalk)
-      data.autoStartProject && startProject(cwd, 'npm', green)
+      // 自动启动项目
+      data.autoStartProject ? startProject(cwd, 'npm', green) : printMessage(data, chalk);
     }).catch(e => {
       console.log(chalk.red('Error:'), e);
     })
