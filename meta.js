@@ -122,9 +122,4 @@ module.exports = {
     })
   },
   completeMessage: '渲染完成',
-  helpers: {
-    'if_eq': (a, b) => {
-      return a === b;
-    }
-  }
 }
