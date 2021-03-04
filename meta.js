@@ -78,6 +78,28 @@ module.exports = {
         }
       ]
     },
+    thirdParty: {
+      when: 'isNotTest',
+      type: 'list',
+      message: 'Which third party component library to choose?',
+      choices: [
+        {
+          name: 'element-ui',
+          value: 'element-ui',
+          short: 'element-ui',
+        },
+        {
+          name: 'ant-design-vue',
+          value: 'ant-design-vue',
+          short: 'ant-design-vue',
+        },
+        {
+          name: 'other',
+          value: 'other',
+          short: 'other',
+        }
+      ]
+    },
     router: {
       when: 'isNotTest',
       type: 'confirm',

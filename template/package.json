@@ -7,6 +7,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    {{#if_eq thirdParty "ant-design-vue"}}
+    "ant-design-vue": "^1.7.4",
+    {{/if_eq}}
+    {{#if_eq thirdParty "element-ui"}}
+    "element-ui": "^2.15.1",
+    {{/if_eq}}
     "core-js": "^3.6.5",
     {{#router}}
     "vue-router": "^3.2.0",
