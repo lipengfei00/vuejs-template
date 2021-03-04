@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style {{#if cssPreprocessor !== "Do not use"}} lang="{{cssPreprocessor}}" {{/if}}>
+<style {{#if_eq cssPreprocessor "Do not use"}}{{else}} lang="{{cssPreprocessor}}" {{/if_eq}}>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
