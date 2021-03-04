@@ -10,7 +10,11 @@ import store from './store'
 Vue.config.productionTip = false
 
 new Vue({
+  {{#router}}
   router,
+  {{/router}}
+  {{#vuex}}
   store,
+  {{/vuex}}
   render: h => h(App)
 }).$mount('#app')
