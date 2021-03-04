@@ -1,5 +1,5 @@
 {
-  "name": "vuejs-template",
+  "name": "{{name}}",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,30 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
+    {{#router}}
     "vue-router": "^3.2.0",
+    {{/router}}
+    {{#vuex}}
     "vuex": "^3.4.0"
+    {{/vuex}}
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    {{#if_eq cssPreprocessor 'Sass'}}
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
+    {{/if_eq}}
+    {{#if_eq cssPreprocessor 'Less'}}
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    {{/if_eq}}
+    {{#if_eq cssPreprocessor 'Less'}}
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    {{/if_eq}}
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

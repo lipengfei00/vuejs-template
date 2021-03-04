@@ -51,6 +51,28 @@ module.exports = {
       type: 'string',
       message: 'Author',
     },
+    cssPreprocessor: {
+      when: 'isNotTest',
+      type: 'list',
+      message: 'Which CSS preprocessor to choose?',
+      choices: [
+        {
+          name: 'Sass',
+          value: 'Sass',
+          short: 'Sass',
+        },
+        {
+          name: 'Less',
+          value: 'Less',
+          short: 'Less',
+        },
+        {
+          name: 'Stylus',
+          value: 'Stylus',
+          short: 'Stylus',
+        }
+      ]
+    },
     router: {
       when: 'isNotTest',
       type: 'confirm',
@@ -66,7 +88,6 @@ module.exports = {
       type: 'confirm',
       message: 'Auto project after install?'
     }
-
   },
   filters: {
     '.eslintrc.js': 'lint',
@@ -100,5 +121,10 @@ module.exports = {
       console.log(chalk.red('Error:'), e);
     })
   },
-  completeMessage: '渲染完成'
+  completeMessage: '渲染完成',
+  helpers: {
+    'if_eq': (a, b) => {
+      return a === b;
+    }
+  }
 }
