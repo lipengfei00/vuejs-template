@@ -100,6 +100,11 @@ module.exports = {
         }
       ]
     },
+    envPackage: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Multi environment packaging',
+    },
     router: {
       when: 'isNotTest',
       type: 'confirm',
@@ -130,6 +135,10 @@ module.exports = {
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
     'src/store/**/*': 'vuex',
+    '.env.production': 'envPackage',
+    '.env.development': 'envPackage',
+    '.env.test': 'envPackage',
+
   },
   complete: function(data, { chalk }) {
     console.log('================= prompts data ====================')

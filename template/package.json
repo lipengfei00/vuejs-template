@@ -4,6 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    {{#envPackage}}
+    "serve-dev": "vue-cli-service serve --model development",
+    "serve-test": "vue-cli-service serve --model test",
+    "serve-production": "vue-cli-service serve --model production",
+    "build-dev": "vue-cli-service build --model development",
+    "build-test": "vue-cli-service build --model test",
+    "build-production": "vue-cli-service build --model production",
+    {{/envPackage}}
     "build": "vue-cli-service build"
   },
   "dependencies": {
